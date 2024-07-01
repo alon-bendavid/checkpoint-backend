@@ -36,7 +36,14 @@ export default class Country extends BaseEntity {
   //   cascade: true,
   //   onDelete: "CASCADE",
   // })
-
+  // @Field()
+  // continent: Continent;
+  @ManyToOne(() => Continent, continent => continent.countries, {
+    cascade: true,
+    onDelete: "CASCADE",
+  })
+  @Field(() => Continent)
+  continent: Continent;
   
 }
 
@@ -51,6 +58,9 @@ export class NewCountryInput {
   @Field()
   emoji: string;
 
+  
+  @Field(() => ObjectId)
+  continent: ObjectId;
  
 }
 

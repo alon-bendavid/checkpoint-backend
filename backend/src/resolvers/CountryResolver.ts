@@ -1,9 +1,10 @@
-import { Resolver, Query, Arg, Mutation, Int } from "type-graphql";
+import { Resolver, Query, Arg, Mutation, Int, ID } from "type-graphql";
 // import Country, { NewCountryInput } from "../entities/Country";
 import  Country, { NewCountryInput } from "../entities/Country";
 
 import { GraphQLError } from "graphql";
 import { Code, In } from "typeorm";
+import ContinentsResolver from "./ContinentResolver";
 
 @Resolver(Country)
 class CountrysResolver {
@@ -34,6 +35,22 @@ class CountrysResolver {
   async Country(): Promise<Country[]> {
     return Country.find();
   }
+
+    @Query(() => [Country])
+    async countries(
+      @Arg("continent", { nullable: true }) id?: number,
+    ) {
+      return Country.find({
+        relations: { continent: true,},
+        where: {
+       
+          continent: {
+            id:  id,
+          },
+        },
+      });
+    }
+
 }
 
 export default CountrysResolver;

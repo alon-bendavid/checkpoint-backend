@@ -23,9 +23,10 @@ export default class Continent extends BaseEntity {
   @Field()
   continentName: string;
 
-  @OneToMany(() => Country, (Country) => Country.Continent)
+  // @OneToMany(() => Country, (Country) => Country.Continent)
+  // countries: Country[];
+  @OneToMany(() => Country, country => country.continent)
   countries: Country[];
-  
 }
 
 @InputType()
