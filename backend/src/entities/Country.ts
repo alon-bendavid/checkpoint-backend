@@ -32,7 +32,7 @@ export default class Country extends BaseEntity {
   @Field()
   emoji: string;
 
-  // @ManyToOne(() => Continent, (c) => c.Countries, {
+  // @ManyToOne(() => Continent, (c) => c.countries, {
   //   cascade: true,
   //   onDelete: "CASCADE",
   // })
