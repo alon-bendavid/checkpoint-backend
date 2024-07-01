@@ -1,18 +1,19 @@
 
 import 'reflect-metadata';
 import db from './db';
-import Country from './entities/Country';
+// import Country from './entities/Country';
 import CountryResolver from './resolvers/CountryResolver';
 import { In, Like } from 'typeorm';
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { buildSchema } from 'type-graphql';
+import ContinentResolver from './resolvers/ContinentResolver';
 
 db.initialize().then(async () => {
   console.log('Database connected successfully');
 
   const schema = await buildSchema({
-    resolvers: [CountryResolver],
+    resolvers: [CountryResolver,ContinentResolver],
   });
 
   const server = new ApolloServer({

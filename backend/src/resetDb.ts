@@ -1,6 +1,8 @@
 
 import db from './db';
+import Continent from './entities/Continent';
 import Country from './entities/Country';
+
 
 async function resetDB() {
   await db.initialize();
@@ -16,6 +18,12 @@ async function resetDB() {
     emoji: 'cr',
   });
   await country.save();
+
+  const continent = new Continent();
+  Object.assign(country, {
+    continentName:'ASIA',
+  });
+  await continent.save();
 
   console.log('Database reset successful');
 }
