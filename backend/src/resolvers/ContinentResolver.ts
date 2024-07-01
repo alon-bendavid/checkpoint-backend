@@ -17,21 +17,11 @@ class ContinentsResolver {
     return newContinentWithId;
   }
 
+  @Query(() => [Continent])
+  async Continent(): Promise<Continent[]> {
+    return Continent.find();
+  }
 
-  // @Query(() => Continent)
-  // async getContinentByCode(@Arg("ContinentCode", () => String) code: string) {
-  //   const  ContinentFound = await Continent.findOne({
-  //     where: { code },
-      
-  //   });
-  //   if (!Continent) throw new GraphQLError("not found");
-  //   return ContinentFound;
-  // }
-
-  // @Query(() => [Continent])
-  // async Continent(): Promise<Continent[]> {
-  //   return Continent.find();
-  // }
 }
 
 export default ContinentsResolver;
