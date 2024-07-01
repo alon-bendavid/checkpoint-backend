@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend checkpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alon-bendavid/checkpoint-backend.git"
+  },
+  "author": "Alon",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.2",
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.1.7",
+    "ts-node-dev": "^2.0.0",
+    "type-graphql": "^2.0.0-beta.6",
+    "typeorm": "^0.3.20"
+  },
+  "bugs": {
+    "url": "https://github.com/alon-bendavid/checkpoint-backend/issues"
+  },
+  "homepage": "https://github.com/alon-bendavid/checkpoint-backend#readme"
+}
